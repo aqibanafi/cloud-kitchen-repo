@@ -13,49 +13,45 @@ import "swiper/css/navigation";
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
 
-//Import Banner Images
-import Breakfast from '../../assets/bannerimg/fried-egg-laying-toast-topped-with-pepper-seeds-with-carrots-spring-onions.jpg'
-import Tiffin from '../../assets/bannerimg/podi-idli-is-delicious-breakfast-dish-from-south-india-freshly-steamed-mini-idli-tossed-with-spiced-mix-called-podi-pure-ghee-served-with-chutney-wooden-background-selective-focus.jpg'
-import Lunch from '../../assets/bannerimg/chicken-steak-with-lemon-tomato-chili-carrot-white-plate.jpg'
-import Dinner from '../../assets/bannerimg/grilled-beef-steak-with-vegetable-flaming-grill.jpg'
-import Birthday from '../../assets/bannerimg/PN4NAK0.jpg'
-import Office from '../../assets/bannerimg/healthy-lunch-go-packed-lunch-box.jpg'
+
+//Picture Import 
+import Image from '../../assets/images/wasa-crispbread-ZMyloE5ySeA-unsplash.jpg'
 
 //Banner Data 
 const data = [
     {
         "title": "Premium Breakfast For You",
         "subTitle": "Breakfast Today",
-        "image": "https://i.ibb.co/0Js4TMr/fried-egg-laying-toast-topped-with-pepper-seeds-with-carrots-spring-onions.jpg"
+        "image": Image
     },
     {
         "title": "Healthy School Tiffin Today",
         "subTitle": "Tiffin Today",
-        "image": "https://i.ibb.co/TRm5ksm/podi-idli-is-delicious-breakfast-dish-from-south-india-freshly-steamed-mini-idli-tossed-with-spiced.jpg"
+        "image": Image
     },
     {
         "title": "Premium Lunch For You",
         "subTitle": "Lunch Today",
-        "image": "https://i.ibb.co/2S226M4/chicken-steak-with-lemon-tomato-chili-carrot-white-plate.jpg"
+        "image": Image
     },
     {
         "title": "Quality Office Food Delivery",
         "subTitle": "Quality Food Today",
-        "image": "https://i.ibb.co/gWYvYSv/healthy-lunch-go-packed-lunch-box.jpg"
+        "image": Image
     },
     {
         "title": "Gorgrous Birthday Food",
         "subTitle": "Happy Birthday",
-        "image": "https://i.ibb.co/nDrVZQf/PN4NAK0.jpg"
+        "image": Image
     },
     {
         "title": "Premium Dinner For You",
         "subTitle": "Dinner Today",
-        "image": "https://i.ibb.co/Wf1Z7Dk/grilled-beef-steak-with-vegetable-flaming-grill.jpg"
+        "image": Image
     }
 ]
 
-export default function App() {
+export default function Banner() {
     return (
         <>
             <Swiper
