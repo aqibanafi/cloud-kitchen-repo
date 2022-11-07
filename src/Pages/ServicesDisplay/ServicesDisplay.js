@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FaStar } from 'react-icons/fa';
 
 const ServicesDisplay = ({ service }) => {
 
@@ -13,10 +15,18 @@ const ServicesDisplay = ({ service }) => {
             <div>
                 <h2 className='text-3xl font-bold mb-5'>{title}</h2>
                 <p className='mb-5'>{description.length > 100 ? description.slice(0, 100) + '...' : description.length}</p>
-                <p className='font-bold'>Price: $ {price} <small>/person</small></p>
+                <div className='flex justify-between'>
+                    <p className='font-bold'>Price: $ {price} <small>/person</small></p>
+                    <div className='flex items-center gap-5'>
+                    <p>Ratings: {rating}</p>
+                    <FaStar className='text-yellow-500'></FaStar>
+                    </div>
+                </div>
             </div>
             <div className='mt-10'>
-                <button className="btn btn-success">Success</button>
+                <Link to={`/servicedetail/${_id}`}>
+                    <button className="btn btn-success">Success</button>
+                </Link>
             </div>
         </div>
     );
