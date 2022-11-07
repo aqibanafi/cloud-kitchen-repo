@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Banner from './Banner';
 import LimitedServices from './LimitedServices';
 
@@ -7,7 +7,7 @@ const Home = () => {
     //Load Data From Loader
     const services = useLoaderData()
     return (
-        <div>
+        <div className='mb-20'>
             <div>
                 <Banner></Banner>
             </div>
@@ -15,6 +15,11 @@ const Home = () => {
                 {
                     services.map(service => <LimitedServices key={service._id} service={service}></LimitedServices>)
                 }
+            </div>
+            <div className='flex justify-center mt-10'>
+                <Link to='/services'>
+                    <button className="btn btn-wide">Show all</button>
+                </Link>
             </div>
         </div>
     );
