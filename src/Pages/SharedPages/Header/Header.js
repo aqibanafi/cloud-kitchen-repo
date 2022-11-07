@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Logo from '../../../logo.png'
 
 const Header = () => {
     return (
@@ -17,19 +18,26 @@ const Header = () => {
                             <li><Link>My Reviews</Link></li>
                             <li><Link>Add Services</Link></li>
                             <li><Link>Log out</Link></li>
-                            
+
                         </ul>
                     </div>
-                    <Link className="btn btn-ghost normal-case text-xl">Superkitch</Link>
+                    <div className='flex items-center'>
+                        <img src={Logo} alt="" />
+                        <Link className="btn btn-ghost normal-case text-xl font-bold">Superkitch</Link>
+                    </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><a>Item 1</a></li>
-                        
+                        <li><Link to='/'>Home</Link></li>
+                        <li><Link to='/services'>Services</Link></li>
+                        <li><Link>Blog</Link></li>
+                        <li><Link>My Reviews</Link></li>
+                        <li><Link>Add Services</Link></li>
+                        <li><Link>Log out</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <a className="btn">Get started</a>
+                    <Link className="btn">Get started</Link>
                 </div>
             </div>
         </div>
