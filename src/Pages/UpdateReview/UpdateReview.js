@@ -57,7 +57,7 @@ const UpdateReview = () => {
                 </div>
                 <form onSubmit={handleUpdateReview}>
                     <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                        <textarea onChange={handleMessageChange} rows="3" name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
+                        <textarea onChange={handleMessageChange} rows="3" defaultValue={reviews.message} name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
                     </div>
                     <div className='flex justify-center'>
                         <div>

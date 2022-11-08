@@ -10,10 +10,12 @@ import Map from '../../assets/icons/map.png'
 import Review from '../../assets/icons/complain.png'
 import Globe from '../../assets/icons/international.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import MyReviewsCard from '../MyReviews/MyReviewsCard';
+import MyReviews from '../MyReviews/MyReviews';
 
 const ServiceDetailPage = () => {
     //Load Single Data From Backend
-    const { title, description, price, rating, image } = useLoaderData()
+    const { title, description, rating, image, _id } = useLoaderData()
 
     //Load User 
     const { user } = useContext(AuthContext)
@@ -32,7 +34,8 @@ const ServiceDetailPage = () => {
             email,
             image,
             message,
-            rating
+            rating,
+            serviceId: _id
         }
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
