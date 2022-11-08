@@ -5,10 +5,6 @@ const MyReviewsCard = ({ reviews, handleDelete }) => {
     //Destructure Properticies
     const { _id, name, image, message, rating } = reviews;
 
-    //Handle Edit Review 
-    const handleEditReview = id => {
-
-    }
     return (
         <div>
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
