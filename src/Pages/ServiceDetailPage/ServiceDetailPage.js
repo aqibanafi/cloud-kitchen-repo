@@ -37,7 +37,7 @@ const ServiceDetailPage = () => {
         const review = {
             name,
             email,
-            value,
+            date: new Date(),
             image,
             message,
             rating,
@@ -244,9 +244,9 @@ const ServiceDetailPage = () => {
                                             <textarea rows="3" name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
                                             <button type="submit" className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-violet-400">Leave feedback</button>
                                         </div>
-                                        <div>
+                                        {/* <div>
                                             <DateTimePicker onChange={onChange} value={value} />
-                                        </div>
+                                        </div> */}
                                     </form>
                                 </div>
                                 <div className="flex items-center justify-center">

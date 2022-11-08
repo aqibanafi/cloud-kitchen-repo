@@ -14,7 +14,7 @@ const Login = () => {
     const [email, setEmail] = useState(null)
 
     //Import Auth Context
-    const { user, signIn, resetPassword, googleProviderLogin } = useContext(AuthContext)
+    const { signIn, resetPassword, googleProviderLogin } = useContext(AuthContext)
 
     //Navigate and Location
     const navigate = useNavigate()
@@ -54,7 +54,14 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                const currentUser = user.email;
+                const currentUser = {
+                    email: user.email
+                }
+                console.log(currentUser)
+                alert("Login successfull")
+                form.reset()
+                setError(' ')
+                navigate(from, { replace: true });
 
                 //Get JWT Token
                 fetch('http://localhost:5000/jwt', {
@@ -68,11 +75,8 @@ const Login = () => {
                     .then(data => {
                         localStorage.setItem('superkitch', data.token)
                         navigate(from, { replace: true })
+                        
                     })
-                alert("Login successfull")
-                form.reset()
-                setError(' ')
-                navigate(from, { replace: true });
             })
             .catch(error => setError(error))
     }
