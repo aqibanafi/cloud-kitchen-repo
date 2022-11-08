@@ -1,7 +1,84 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Logo from '../../logo.png'
+import { FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const Registration = () => {
+
+    //Import Auth Info 
+    const { createUser, updateUserProfile, googleProviderLogin } = useContext(AuthContext)
+
+    //Set Error State
+    const [error, setError] = useState('')
+
+    //Terms and condition accepted State
+    const [accepted, setAccepted] = useState(false)
+
+    //Navigate and Location
+    const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/';
+
+    //Get Name
+    const [name, setName] = useState(null)
+    const getName = event => {
+        event.preventDefault()
+        const getUserName = event.target.name.value;
+        setName(getUserName)
+    }
+
+    //Handle Create Account
+    const handleSubmit = event => {
+        event.preventDefault()
+        const form = event.target;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        createUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user)
+            setError(' ')
+            form.reset()
+            navigate('/login')
+            handleUpdateUserProfile(name, photoURL)
+            alert("Account Created!!")
+        })
+    }
+
+    //Handle Google Login
+    const googleProvider = new GoogleAuthProvider()
+
+    const handleGoogleSignUp = () => {
+        googleProviderLogin(googleProvider)
+            .then(result => {
+                alert("Successfylly Login")
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true });
+            })
+            .catch(error => console.error(error))
+    }
+
+    //Handle Update User Profile 
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile ={
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+        .then(() => { })
+        .catch(error => console.error(error))
+    }
+
+    //Terms and Conditions Check
+    const handleAccepted = event => {
+        setAccepted(event.target.checked)
+    }
     return (
         <div className='container mx-auto'>
             <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center'>
@@ -31,11 +108,6 @@ const Registration = () => {
                                         <FaGoogle className='text-amber-500 font-bold text-2xl'></FaGoogle>
                                     </div>
                                 </Link>
-                                <Link onClick={handleGithubSignUp}>
-                                    <div className='px-16 py-3 rounded-lg bg-slate-200'>
-                                        <FaGithub className='text-amber-500 font-bold text-2xl'></FaGithub>
-                                    </div>
-                                </Link>
                             </div>
                         </div>
                         <div>
@@ -50,6 +122,7 @@ const Registration = () => {
                                     </label>
                                     <input
                                         name="name"
+                                        onBlur={getName}
                                         type="text"
                                         autoComplete="name"
                                         required
@@ -134,7 +207,7 @@ const Registration = () => {
                     </div>
                 </div>
                 <div className='w-3/5'>
-                  
+
                 </div>
             </div>
 

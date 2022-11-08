@@ -1,8 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import Logo from '../../../logo.png'
 
 const Header = () => {
+    //Import Auth Context
+    const { user, logOut } = useContext(AuthContext)
+
+    //Navigate
+    const navigate = useNavigate()
+
+    //Handle Log Out 
+    const handleLogOut = () => {
+        logOut()
+            .then(() => {
+                navigate('/')
+            })
+        alert("You signed out!!")
+            .catch(error => console.error(error))
+    }
+
     return (
         <div>
             <div className="navbar bg-base-100">
@@ -12,13 +29,27 @@ const Header = () => {
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link to='/'>Home</Link></li>
-                            <li><Link to='/services'>Services</Link></li>
-                            <li><Link>Blog</Link></li>
-                            <li><Link>My Reviews</Link></li>
-                            <li><Link>Add Services</Link></li>
-                            <li><Link>Log out</Link></li>
+                            {
+                                user?.email ?
+                                    <>
+                                        <li><Link to='/'>Home</Link></li>
+                                        <li><Link to='/services'>Services</Link></li>
+                                        <li><Link>Blog</Link></li>
+                                        <li><Link>My Reviews</Link></li>
+                                        <li><Link>Add Services</Link></li>
+                                        <div>
+                                            <p className='font-bold'>Welcome, {user?.displayName}</p>
+                                        </div>
+                                        <li><Link onClick={handleLogOut}>Log out</Link></li>
+                                    </>
+                                    :
+                                    <>
+                                        <li><Link to='/'>Home</Link></li>
+                                        <li><Link to='/services'>Services</Link></li>
+                                        <li><Link>Blog</Link></li>
+                                    </>
 
+                            }
                         </ul>
                     </div>
                     <div className='flex items-center'>
@@ -28,16 +59,31 @@ const Header = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/services'>Services</Link></li>
-                        <li><Link>Blog</Link></li>
-                        <li><Link>My Reviews</Link></li>
-                        <li><Link>Add Services</Link></li>
-                        <li><Link>Log out</Link></li>
+                        {
+                            user?.email ?
+                                <>
+                                    <li><Link to='/'>Home</Link></li>
+                                    <li><Link to='/services'>Services</Link></li>
+                                    <li><Link>Blog</Link></li>
+                                    <li><Link>My Reviews</Link></li>
+                                    <li><Link>Add Services</Link></li>
+                                    <div>
+                                        <p className='font-bold'>Welcome, {user?.displayName}</p>
+                                    </div>
+                                    <li><Link onClick={handleLogOut}>Log out</Link></li>
+                                </>
+                                :
+                                <>
+                                    <li><Link to='/'>Home</Link></li>
+                                    <li><Link to='/services'>Services</Link></li>
+                                    <li><Link>Blog</Link></li>
+                                </>
+
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn">Get started</Link>
+                    <Link to='/login' className="btn">Login</Link>
                 </div>
             </div>
         </div>
