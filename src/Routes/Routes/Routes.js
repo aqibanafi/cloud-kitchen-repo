@@ -9,6 +9,7 @@ import Registration from "../../Pages/Registration/Registration";
 import ServiceDetailPage from "../../Pages/ServiceDetailPage/ServiceDetailPage";
 import Services from "../../Pages/Services/Services";
 import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
+import UserReview from "../../Pages/UserReview/UserReview";
 
 export const routes = createBrowserRouter([
     {
@@ -54,6 +55,11 @@ export const routes = createBrowserRouter([
             {
                 path: '/addservice',
                 element: <AddNewService></AddNewService>
+            },
+            {
+                path: '/userreview',
+                element: <UserReview></UserReview>,
+                loader: () => fetch('http://localhost:5000/allreviews')
             }
         ]
     }
