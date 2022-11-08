@@ -3,9 +3,11 @@ import Main from "../../layout/Main";
 import Banner from "../../Pages/Home/Banner";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
+import MyReviews from "../../Pages/MyReviews/MyReviews";
 import Registration from "../../Pages/Registration/Registration";
 import ServiceDetailPage from "../../Pages/ServiceDetailPage/ServiceDetailPage";
 import Services from "../../Pages/Services/Services";
+import UpdateReview from "../../Pages/UpdateReview/UpdateReview";
 
 export const routes = createBrowserRouter([
     {
@@ -38,6 +40,15 @@ export const routes = createBrowserRouter([
             {
                 path: '/registration',
                 element: <Registration></Registration>
+            },
+            {
+                path: '/myreviews',
+                element: <MyReviews></MyReviews>
+            },
+            {
+                path: '/updatereview/:id',
+                element: <UpdateReview></UpdateReview>,
+                loader: ({params}) => fetch(`http://localhost:5000/myreviews/${params.id}`)
             }
         ]
     }

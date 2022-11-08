@@ -195,7 +195,7 @@ const ServiceDetailPage = () => {
                 {/* Review Post Box  */}
                 <div>
                     {
-                        user &&
+                        user ?
                         <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
                             <div className="flex flex-col items-center w-full">
                                 <h2 className="text-3xl font-semibold text-center">Your opinion matters!</h2>
@@ -240,6 +240,8 @@ const ServiceDetailPage = () => {
                                 <Link rel="noopener noreferrer" href="#" className="text-sm dark:text-gray-400">Maybe later</Link>
                             </div>
                         </div>
+                        :
+                        <h2 className='text-2xl font-bold text-center'>Please <Link to='/login'>Login</Link> to Post Review</h2>
                     }
                 </div>
                 <div>
