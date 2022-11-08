@@ -18,7 +18,8 @@ const AddNewService = () => {
             image: image,
             description: description,
             rating: rating,
-            price: price
+            price: price,
+            date: new Date()
         }
 
         fetch('http://localhost:5000/services', {
