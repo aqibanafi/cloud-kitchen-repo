@@ -1,6 +1,8 @@
 import React from 'react';
 import { FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const LimitedServices = ({ service }) => {
     //Distructure Data 
@@ -8,7 +10,11 @@ const LimitedServices = ({ service }) => {
     return (
         <div className='flex flex-col items-center p-10 shadow-xl rounded-xl'>
             <div className='mb-10'>
-                <img className='h-64 w-96 rounded-lg hover:scale-110 duration-300 ease-out' src={image} alt="" />
+                <PhotoProvider>
+                    <PhotoView src={image}>
+                        <img className='h-64 w-96 rounded-lg hover:scale-110 duration-300 ease-out' src={image} alt="" />
+                    </PhotoView>
+                </PhotoProvider>
             </div>
             <div>
                 <h2 className='text-3xl font-bold mb-5'>{title}</h2>

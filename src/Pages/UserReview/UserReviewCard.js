@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const UserReviewCard = ({ reviews }) => {
-    const { _id, name, image, message, rating } = reviews;
+    const { _id, name, image, message, rating, value } = reviews;
 
     return (
         <div>
@@ -14,7 +14,7 @@ const UserReviewCard = ({ reviews }) => {
                         </div>
                         <div>
                             <h4 className="font-bold">{name}</h4>
-                            <span className="text-xs dark:text-gray-400">2 days ago</span>
+                            <span className="text-xs dark:text-gray-400">{value}</span>
                         </div>
                     </div>
                     <div className="flex items-center space-x-2 dark:text-yellow-500">

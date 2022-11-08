@@ -9,14 +9,12 @@ const UserReview = () => {
 
     //Set Revier State
     const [review, setReview] = useState([])
-    console.log(allReviews)
-
     //Load Query Data 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?serviceid=${allReviews._id}`)
         .then(res => res.json())
         .then(data => setReview(data))
-    }, [])
+    }, [review])
     return (
         <div>
             <div>

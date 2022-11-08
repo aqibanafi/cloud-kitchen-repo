@@ -59,7 +59,7 @@ const Login = () => {
                 setError(' ')
                 navigate(from, { replace: true });
             })
-            .catch(error => console.error(error))
+            .catch(error => setError(error))
     }
 
     //Handle Reset Password
