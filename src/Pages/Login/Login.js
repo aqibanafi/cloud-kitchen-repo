@@ -54,6 +54,21 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
+                const currentUser = user.email;
+
+                //Get JWT Token
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('superkitch', data.token)
+                        navigate(from, { replace: true })
+                    })
                 alert("Login successfull")
                 form.reset()
                 setError(' ')
@@ -65,10 +80,10 @@ const Login = () => {
     //Handle Reset Password
     const handleResetPassword = () => {
         resetPassword(email)
-        .then(() => {
-            alert("Link Sent!")
-        })
-        .catch(error => console.error(error))
+            .then(() => {
+                alert("Link Sent!")
+            })
+            .catch(error => console.error(error))
     }
     return (
         <div className='container mx-auto'>
