@@ -47,7 +47,6 @@ const ServiceDetailPage = () => {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
-                authorization: `Bearer ${localStorage.getItem('superkitch')}`
             },
             body: JSON.stringify(review)
         })

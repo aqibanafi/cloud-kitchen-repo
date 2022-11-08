@@ -57,7 +57,6 @@ const Login = () => {
                 const currentUser = {
                     email: user.email
                 }
-                console.log(currentUser)
                 alert("Login successfull")
                 form.reset()
                 setError(' ')
