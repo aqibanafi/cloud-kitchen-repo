@@ -9,10 +9,14 @@ import Imageone from '../../assets/images/section-images/delicious-chicken-table
 import Imagetwo from '../../assets/images/section-images/grilled-chicken-legs-barbecue-sauce-with-pepper-seeds-parsley-salt-black-stone-plate-black-stone-table.jpg'
 import Imagethree from '../../assets/images/section-images/grilled-chicken-legs-flaming-grill-with-grilled-vegetables-with-tomatoes-potatoes-pepper-seeds-salt.jpg'
 import Imagefour from '../../assets/images/section-images/half-grilled-chicken-plate.jpg'
+import useTitle from '../../hooks/useTitle';
 
 const Home = () => {
     //Load Data From Loader
     const services = useLoaderData()
+
+    //Set Page Title
+    useTitle("Home")
 
     return (
         <div className='mb-20'>

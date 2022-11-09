@@ -14,7 +14,9 @@ const UserReview = () => {
         fetch(`http://localhost:5000/reviews?serviceid=${allReviews._id}`)
             .then(res => res.json())
             .then(data => setReview(data))
-    }, [review])
+    }, [allReviews._id, review])
+
+    console.log(review)
     return (
         <div className='mt-20 mb-20'>
             <div>

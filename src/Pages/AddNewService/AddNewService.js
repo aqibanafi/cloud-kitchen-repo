@@ -2,9 +2,12 @@ import React from 'react';
 import Lottie from "lottie-react";
 import Addservice from '../../assets/lottie/add-new-service.json';
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const AddNewService = () => {
 
+    //Set Page Title
+    useTitle("Add New Service")
     //Add New Service Button 
     const handleAddNewService = event => {
         event.preventDefault()

@@ -7,9 +7,13 @@ import { FaGoogle } from 'react-icons/fa';
 import reader from '../../assets/lottie/login.json';
 import Lottie from 'lottie-react';
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 
 const Login = () => {
+
+    //Set Page Title
+    useTitle("Log in")
 
     //Error State
     const [error, setError] = useState(' ')

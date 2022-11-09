@@ -46,11 +46,11 @@ const MyReviewsCard = ({ reviews, handleDelete }) => {
                 <div className='flex justify-evenly'>
                     <div className='mt-5'>
                         <Link to={`/updatereview/${_id}`}>
-                            <button className="btn bg-orange-500 border-0 text-white font-bold px-10">Edit Profile</button>
+                            <button className="btn bg-orange-500 border-0 text-white font-bold px-10 hover:bg-orange-700">Edit review</button>
                         </Link>
                     </div>
                     <div className='mt-5'>
-                        <button onClick={() => handleDelete(_id)} className="btn border-0 bg-red-600 text-white font-bold px-10">Delete</button>
+                        <button onClick={() => handleDelete(_id)} className="btn border-0 bg-red-600 text-white font-bold px-10 hover:bg-red-800">Delete</button>
                     </div>
                 </div>
             </div>

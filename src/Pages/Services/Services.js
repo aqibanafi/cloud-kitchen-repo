@@ -1,8 +1,12 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useTitle from '../../hooks/useTitle';
 import ServicesDisplay from '../ServicesDisplay/ServicesDisplay';
 
 const Services = () => {
+
+    //Set Page Title
+    useTitle("My Services")
     //Load Data From Backend
     const services = useLoaderData()
     return (

@@ -4,8 +4,12 @@ import SQL from '../../assets/images/sql-vs-no-sql-1.png';
 import JWT from '../../assets/images/jwt.png';
 import Node from '../../assets/images/jsnodejs.jpg';
 import Nodejs from '../../assets/images/nodejs.jpg';
+import useTitle from '../../hooks/useTitle';
 
 const Blog = () => {
+    //Set Page Title
+    useTitle("Blogs")
+    
     return (
         <div>
             <section className="py-6 sm:py-12 mb-20">

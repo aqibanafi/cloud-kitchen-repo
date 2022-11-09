@@ -13,8 +13,12 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import UserReview from '../UserReview/UserReview';
 import { FaStar } from 'react-icons/fa';
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const ServiceDetailPage = () => {
+
+    //Set Page Title
+    useTitle("Service Details")
 
     //Load Single Data From Backend
     const { title, description, image, _id } = useLoaderData()
@@ -115,7 +119,7 @@ const ServiceDetailPage = () => {
                     <h1 className='text-5xl text-center font-bold text-white p-20'>{title}</h1>
                 </div>
                 <div className='flex justify-center mt-10'>
-                    <img src={image} alt="" />
+                    <img className='w-[800px]' src={image} alt="" />
                 </div>
                 <div className='container mx-auto'>
                     <div className='mt-10'>

@@ -7,8 +7,12 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import Lottie from "lottie-react";
 import reader from '../../assets/lottie/registration.json'
 import toast from 'react-hot-toast';
+import useTitle from '../../hooks/useTitle';
 
 const Registration = () => {
+
+    //Set Page Title
+    useTitle("Registration")
 
     //Import Auth Info 
     const { createUser, updateUserProfile, googleProviderLogin } = useContext(AuthContext)

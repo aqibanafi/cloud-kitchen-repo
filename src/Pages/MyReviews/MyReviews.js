@@ -2,8 +2,12 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import MyReviewsCard from './MyReviewsCard';
 import Swal from 'sweetalert2'
+import useTitle from '../../hooks/useTitle';
 
 const MyReviews = () => {
+
+    //Set Page Title
+    useTitle("My Reviews")
 
     //Load User Data By Auth Context
     const { user, logOut } = useContext(AuthContext)
@@ -25,7 +29,7 @@ const MyReviews = () => {
                 return res.json()
             })
             .then(data => setReview(data))
-    }, [user?.email])
+    }, [user?.email, logOut])
 
 
     //Sweet Alert For Delete Review 
