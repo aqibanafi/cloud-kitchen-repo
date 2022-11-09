@@ -9,7 +9,7 @@ const LimitedServices = ({ service }) => {
     const { _id, title, image, description, rating, price } = service;
     return (
         <div>
-            <div className='flex flex-col items-center p-10 shadow-xl rounded-xl justify-center'>
+            <div className='flex flex-col items-center p-10 shadow-xl border rounded-xl'>
                 <div className='mb-10'>
                     <PhotoProvider>
                         <PhotoView src={image}>
@@ -37,7 +37,6 @@ const LimitedServices = ({ service }) => {
                 </div>
             </div>
         </div>
-
     );
 };
 

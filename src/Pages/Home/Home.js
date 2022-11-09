@@ -30,9 +30,9 @@ const Home = () => {
                     }
                 </div>
             </div>
-            <div className='flex justify-center mt-10'>
+            <div className='flex justify-end mr-5 mt-10'>
                 <Link to='/services'>
-                    <button className="btn px-32 text-white bg-orange-600 border-0 hover:bg-orange-800">Show all</button>
+                    <button className="btn px-10 text-white bg-orange-600 border-0 hover:bg-orange-800">Show all</button>
                 </Link>
             </div>
             {/* Extra Section One  */}

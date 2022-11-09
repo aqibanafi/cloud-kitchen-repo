@@ -88,9 +88,9 @@ export default function Banner() {
                                 <div className="relative flex flex-col gap-5 text-white text-center font-bold py-80">
                                     <p>{info.subTitle}</p>
                                     <h1 className="text-6xl">{info.title}</h1>
-                                    <div>
+                                    <div className="mt-5">
                                         <Link to='/services'>
-                                            <button className="btn btn-active bg-orange-600 border-0 px-20 hover:bg-orange-900">Get Started</button>
+                                            <button className="btn btn-active bg-orange-600 border-0 px-20 hover:bg-orange-900 text-white">Get Started</button>
                                         </Link>
                                     </div>
                                 </div>

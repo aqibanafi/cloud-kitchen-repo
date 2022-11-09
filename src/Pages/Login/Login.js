@@ -2,8 +2,12 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-import Logo from '../../logo.png'
+import Logo from '../../assets/images/logo.png'
 import { FaGoogle } from 'react-icons/fa';
+import reader from '../../assets/lottie/login.json';
+import Lottie from 'lottie-react';
+import toast from 'react-hot-toast';
+
 
 const Login = () => {
 
@@ -34,7 +38,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleProviderLogin(googleProvider)
             .then(result => {
-                alert("Successfylly Login")
+                toast.success("You Have Successfully Logged in")
                 const user = result.user;
                 console.log(user);
                 navigate(from, { replace: true });
@@ -57,7 +61,7 @@ const Login = () => {
                 const currentUser = {
                     email: user.email
                 }
-                alert("Login successfull")
+                toast.success("Login Successful")
                 form.reset()
                 setError(' ')
                 navigate(from, { replace: true });
@@ -74,7 +78,7 @@ const Login = () => {
                     .then(data => {
                         localStorage.setItem('superkitch', data.token)
                         navigate(from, { replace: true })
-                        
+
                     })
             })
             .catch(error => setError(error))
@@ -84,18 +88,19 @@ const Login = () => {
     const handleResetPassword = () => {
         resetPassword(email)
             .then(() => {
-                alert("Link Sent!")
+                toast.success("Password Reset Link Sent")
             })
             .catch(error => console.error(error))
     }
     return (
         <div className='container mx-auto'>
-            <div className='grid grid-cols-1 md:grid-cols-2 items-center justify-center'>
-                <div className="w-full flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <h1 className='text-center text-5xl font-bold text-orange-500 mb-12 mt-20'>Please Login Here</h1>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-20 items-center justify-center mt-20 mb-20'>
+                <div className="w-full flex shadow-xl border min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                     <div className="w-full max-w-md space-y-8">
                         <div>
                             <img
-                                className="mx-auto h-12 w-auto"
+                                className="mx-auto h-24 w-auto"
                                 src={Logo}
                                 alt="Your Company"
                             />
@@ -110,7 +115,7 @@ const Login = () => {
                             </p>
                         </div>
                         <div>
-                            <p className='mb-5 font-bold text-center'>Sign in with</p>
+                            <p className='mb-5 font-bold text-center'>Log in with</p>
                             <div className='flex flex-wrap justify-center gap-5'>
                                 <Link onClick={handleGoogleSignIn}>
                                     <div className='px-16 py-3 rounded-lg bg-slate-200'>
@@ -169,16 +174,12 @@ const Login = () => {
                                     </div>
 
                                     <div>
-                                        <Link onClick={handleResetPassword}><p><small>Forget Password?</small></p></Link>
+                                        <Link onClick={handleResetPassword}><p className='text-gray-500 hover:text-amber-600'><small>Forget Password?</small></p></Link>
                                     </div>
                                 </div>
-                                <div>
-                                    <Link><p><small>Forget Password?</small></p></Link>
-                                </div>
-
                                 <div className="text-sm">
                                     <div href="#" className="font-normal">
-                                        New to this website? Please <Link to='/registration' className='text-amber-500'>Sign up</Link>
+                                        New to this website? Please <Link to='/registration' className='text-amber-500'>Registration</Link>
                                     </div>
                                 </div>
                             </div>
@@ -191,13 +192,15 @@ const Login = () => {
                             >
                                 <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                                 </span>
-                                Sign in
+                                Log in
                             </button>
                         </form>
                     </div>
                 </div>
-                <div className='w-3/5'>
-
+                <div className='flex justify-center'>
+                    <div className='w-3/5'>
+                        <Lottie animationData={reader} loop={true}></Lottie>
+                    </div>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import Blog01 from "../../Pages/Blog/Blog01";
 import Blog02 from "../../Pages/Blog/Blog02";
 import Blog03 from "../../Pages/Blog/Blog03";
 import Blog04 from "../../Pages/Blog/Blog04";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Banner from "../../Pages/Home/Banner";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
@@ -60,7 +61,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/addservice',
-                element: <AddNewService></AddNewService>
+                element: <PrivateRoutes><AddNewService></AddNewService></PrivateRoutes>
             },
             {
                 path: '/userreview',
@@ -86,6 +87,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/blog04',
                 element: <Blog04></Blog04>
+            },
+            {
+                path: '*',
+                element: <ErrorPage></ErrorPage>
             }
         ]
     }

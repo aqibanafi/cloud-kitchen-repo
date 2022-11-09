@@ -1,19 +1,21 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
 
 const PostReviewBox = () => {
 
-     //Load User 
-     const {user} = useContext(AuthContext)
+    //Load User 
+    const { user } = useContext(AuthContext)
 
-     //Button To Post New Review
-     const handlePostReview = event => {
+    //Button To Post New Review
+    const handlePostReview = event => {
         event.preventDefault();
+        toast.success("Your Review is Posted")
         const name = user?.displayName;
         const email = user?.email;
         const image = user?.photoURL;
-     }
+    }
     return (
         <div>
             <div className="flex flex-col max-w-xl p-8 shadow-sm rounded-xl lg:p-12 dark:bg-gray-900 dark:text-gray-100">
@@ -50,10 +52,10 @@ const PostReviewBox = () => {
                         </div>
                     </div>
                     <form onSubmit={handlePostReview}>
-                    <div className="flex flex-col w-full">
-                        <textarea rows="3" name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
-                        <button type="submit" className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-violet-400">Leave feedback</button>
-                    </div>
+                        <div className="flex flex-col w-full">
+                            <textarea rows="3" name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
+                            <button type="submit" className="py-4 my-8 font-semibold rounded-md dark:text-gray-900 dark:bg-violet-400">Leave feedback</button>
+                        </div>
                     </form>
                 </div>
                 <div className="flex items-center justify-center">

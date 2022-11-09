@@ -12,18 +12,23 @@ const UserReview = () => {
     //Load Query Data 
     useEffect(() => {
         fetch(`http://localhost:5000/reviews?serviceid=${allReviews._id}`)
-        .then(res => res.json())
-        .then(data => setReview(data))
+            .then(res => res.json())
+            .then(data => setReview(data))
     }, [review])
     return (
-        <div>
+        <div className='mt-20 mb-20'>
             <div>
-                <h1 className='text-4xl font-bold text-center'>User Reviews</h1>
+                {
+                    review.length === 0 ?
+                    <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>No Feedback Were Given Into This Service</h1>
+                    :
+                    <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>User Reviews</h1>
+                }
             </div>
-            <div>
-               {
-                review.map(reviews => <UserReviewCard key={reviews._id} reviews={reviews}></UserReviewCard>)
-               }
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
+                {
+                    review.map(reviews => <UserReviewCard key={reviews._id} reviews={reviews}></UserReviewCard>)
+                }
             </div>
         </div>
     );

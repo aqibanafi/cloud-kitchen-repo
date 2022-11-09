@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const UpdateReview = () => {
     //Load Data By Use Loader
@@ -21,7 +22,7 @@ const UpdateReview = () => {
             .then(res => res.json())
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    alert("Updated!")
+                    toast.success("Your Review is Updated")
                 }
             })
     }
@@ -36,8 +37,9 @@ const UpdateReview = () => {
         setReview(newReview)
     }
     return (
-        <div>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-gray-700 dark:bg-gray-900 dark:text-gray-100">
+        <div className='mt-20 mb-20'>
+            <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>Update Review Here</h1>
+            <div className="container border shadow-xl flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-orange-500 dark:text-black">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>
@@ -57,11 +59,11 @@ const UpdateReview = () => {
                 </div>
                 <form onSubmit={handleUpdateReview}>
                     <div className="p-4 space-y-2 text-sm dark:text-gray-400">
-                        <textarea onChange={handleMessageChange} rows="3" defaultValue={reviews.message} name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-100 dark:bg-gray-900"></textarea>
+                        <textarea onChange={handleMessageChange} rows="3" defaultValue={reviews.message} name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-gray-700 bg-orange-100 w-full"></textarea>
                     </div>
                     <div className='flex justify-center'>
                         <div>
-                            <button type='submit' className="btn btn-warning">Edit Review</button>
+                            <button type='submit' className="btn border-0 bg-orange-500 text-white px-12 font-bold">Edit Review</button>
                         </div>
                     </div>
                 </form>
