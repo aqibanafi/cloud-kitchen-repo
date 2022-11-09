@@ -21,6 +21,7 @@ import Dinner from '../../assets/images/banner/dinner.jpg';
 import Tiffin from '../../assets/images/banner/school-tiffin.jpg';
 import Office from '../../assets/images/banner/office-food.jpg';
 import Birthday from '../../assets/images/banner/birthday-cake.jpg';
+import { Link } from "react-router-dom";
 
 //Banner Data 
 const data = [
@@ -60,6 +61,10 @@ export default function Banner() {
     return (
         <>
             <Swiper
+                style={{
+                    "--swiper-pagination-color": "#FFA500",
+                    "--swiper-navigation-color": "#FFA500",
+                }}
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
@@ -83,7 +88,13 @@ export default function Banner() {
                                 <div className="relative flex flex-col gap-5 text-white text-center font-bold py-80">
                                     <p>{info.subTitle}</p>
                                     <h1 className="text-6xl">{info.title}</h1>
+                                    <div>
+                                        <Link to='/services'>
+                                            <button className="btn btn-active bg-orange-600 border-0 px-20 hover:bg-orange-900">Get Started</button>
+                                        </Link>
+                                    </div>
                                 </div>
+
                             </div>
                         </SwiperSlide>)
                     }

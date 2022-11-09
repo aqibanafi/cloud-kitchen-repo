@@ -22,7 +22,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className="navbar bg-base-100">
+            <div className="navbar bg-orange-400">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -54,11 +54,11 @@ const Header = () => {
                     </div>
                     <div className='flex items-center'>
                         <img src={Logo} alt="" />
-                        <Link className="btn btn-ghost normal-case text-xl font-bold">Superkitch</Link>
+                        <Link className="btn btn-ghost normal-case text-xl font-bold text-white">Superkitch</Link>
                     </div>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal p-0">
+                    <ul className="menu menu-horizontal p-0 text-white font-bold">
                         {
                             user?.email ?
                                 <>
@@ -82,9 +82,12 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <Link to='/login' className="btn">Login</Link>
-                </div>
+                {
+                    user?.email ||
+                    <div className="navbar-end">
+                        <Link to='/login' className="btn bg-orange-600 border-0 hover:bg-orange-900">Login</Link>
+                    </div>
+                }
             </div>
         </div>
     );

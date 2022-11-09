@@ -31,7 +31,7 @@ const ServicesDisplay = ({ service }) => {
             </div>
             <div className='mt-10'>
                 <Link to={`/servicedetail/${_id}`}>
-                    <button className="btn btn-success">Success</button>
+                    <button className="btn btn-success text-white bg-orange-600 border-0 px-20 hover:bg-orange-800">Success</button>
                 </Link>
             </div>
         </div>
