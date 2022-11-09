@@ -20,9 +20,9 @@ const UserReview = () => {
             <div>
                 {
                     review.length === 0 ?
-                    <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>No Feedback Were Given Into This Service</h1>
-                    :
-                    <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>User Reviews</h1>
+                        <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>No Feedback Were Given Into This Service</h1>
+                        :
+                        <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>User Reviews</h1>
                 }
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>

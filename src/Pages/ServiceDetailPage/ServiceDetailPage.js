@@ -11,23 +11,43 @@ import Review from '../../assets/icons/complain.png'
 import Globe from '../../assets/icons/international.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import UserReview from '../UserReview/UserReview';
-import DateTimePicker from 'react-datetime-picker';
+import { FaStar } from 'react-icons/fa';
+import { format, formatDistanceToNow } from 'date-fns'
+import toast from 'react-hot-toast';
 
 const ServiceDetailPage = () => {
 
-    const [star, setStar] = useState(0)
     //Load Single Data From Backend
-    const { title, description, rating, image, _id } = useLoaderData()
+    const { title, description, image, _id } = useLoaderData()
 
     //Load User 
     const { user } = useContext(AuthContext)
 
-    //Date And Time State
-    const [value, onChange] = useState(new Date());
+    //Review Count State
+    const [reviewStar, setReviewStar] = useState(0)
+
+    //States For Setting Review Star Color
+    const [starOneStarColor, setStarOneStarColor] = useState("text-gay-500")
+    const [starTwoStarColor, setStarTwoStarColor] = useState("text-gay-500")
+    const [starThreeStarColor, setStarThreeStarColor] = useState("text-gay-500")
+    const [starFourStarColor, setStarFourStarColor] = useState("text-gay-500")
+    const [starFiverStarColor, setStarFiverStarColor] = useState("text-gay-500")
+
+    //Review Star Disable
+    const [count, setCount] = useState(0)
+
+    //Date and Review Time
+    const date = new Date();
+
+    const reviewTime = formatDistanceToNow(
+        new Date(date),
+        { includeSeconds: true }
+    )
 
     //Button To Post New Review
     const handlePostReview = event => {
         event.preventDefault();
+        const form = event.target;
         const name = user?.displayName;
         const email = user?.email;
         const image = user?.photoURL;
@@ -37,12 +57,14 @@ const ServiceDetailPage = () => {
         const review = {
             name,
             email,
-            date: new Date(),
+            reviewTime,
             image,
             message,
-            rating,
+            ratingComment: `${reviewStar === 1 ? "Poor" : reviewStar === 2 ? "Below Average" : reviewStar === 3 ? "Average" : reviewStar === 4 ? "Good" : reviewStar === 5 ? "Excellent" : ""}`,
+            rating: reviewStar,
             serviceid: _id
         }
+        console.log(review)
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
             headers: {
@@ -53,11 +75,43 @@ const ServiceDetailPage = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                form.reset();
                 if (data.acknowledged) {
-                    alert("Review Posted")
+                    toast.success("Your Review is Submitted Successfully")
                 }
             })
             .catch(error => console.error(error))
+    }
+
+    //All Functions To Get Value For Posting Review
+    const handleGetReviewOne = () => {
+        const starValue = [1]
+        setReviewStar(...starValue)
+        setCount(1)
+
+    }
+    const handleGetReviewTwo = () => {
+        const starValue = [2]
+        setReviewStar(...starValue)
+        setCount(2)
+    }
+    const handleGetReviewThree = () => {
+        const starValue = [3]
+        setReviewStar(...starValue)
+        setCount(3)
+
+    }
+    const handleGetReviewFour = () => {
+        const starValue = [4]
+        setReviewStar(...starValue)
+        setCount(4)
+
+    }
+    const handleGetReviewFive = () => {
+        const starValue = [5]
+        setReviewStar(...starValue)
+        setCount(5)
+
     }
 
     return (
@@ -198,8 +252,6 @@ const ServiceDetailPage = () => {
                         </div>
                     </div>
                 </div>
-
-
             </div>
 
             {/* Review Section  */}
@@ -214,37 +266,34 @@ const ServiceDetailPage = () => {
                                     <h2 className="text-center text-3xl font-bold text-orange-500">Submit Your Valuable Feedback</h2>
                                     <div className="flex flex-col items-center py-6 space-y-3">
                                         <span className="text-center">How was your experience?</span>
+                                        <div>
+                                            <p className='text-xl font-bold text-orange-500'>
+                                                {
+                                                    reviewStar === 1 ? "Poor" : reviewStar === 2 ? "Below Average" : reviewStar === 3 ? "Average" : reviewStar === 4 ? "Good" : reviewStar === 5 ? "Excellent" : ""
+                                                }
+                                            </p>
+                                        </div>
                                         <div className="flex space-x-3">
-                                            <button type="button" title="Rate 1 stars" aria-label="Rate 1 stars">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-500">
-                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                                </svg>
+                                            <button onClick={() => handleGetReviewOne(`${setStarOneStarColor("text-yellow-500")}`)} className={`${starOneStarColor}`} disabled={count !== 0} type="button" name="one" title="Rate 1 stars" aria-label="Rate 1 stars">
+                                                <FaStar className='text-4xl'></FaStar>
                                             </button>
-                                            <button type="button" title="Rate 2 stars" aria-label="Rate 2 stars">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-500">
-                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                                </svg>
+                                            <button onClick={() => handleGetReviewTwo(`${setStarTwoStarColor("text-yellow-500")}`)} className={`${starTwoStarColor}`} disabled={count !== 1} type="button" title="Rate 2 stars" name="2" aria-label="Rate 2 stars">
+                                                <FaStar className='text-4xl'></FaStar>
                                             </button>
-                                            <button type="button" title="Rate 3 stars" aria-label="Rate 3 stars">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-500">
-                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                                </svg>
+                                            <button onClick={() => handleGetReviewThree(`${setStarThreeStarColor("text-yellow-500")}`)} className={`${starThreeStarColor}`} disabled={count !== 2} type="button" title="Rate 3 stars" name="3" aria-label="Rate 3 stars">
+                                                <FaStar className='text-4xl'></FaStar>
                                             </button>
-                                            <button type="button" title="Rate 4 stars" aria-label="Rate 4 stars">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-yellow-500">
-                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                                </svg>
+                                            <button onClick={() => handleGetReviewFour(`${setStarFourStarColor("text-yellow-500")}`)} className={`${starFourStarColor}`} disabled={count !== 3} type="button" title="Rate 4 stars" name="four" aria-label="Rate 4 stars">
+                                                <FaStar className='text-4xl'></FaStar>
                                             </button>
-                                            <button type="button" title="Rate 5 stars" aria-label="Rate 5 stars">
-                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-10 h-10 dark:text-gray-600">
-                                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                                                </svg>
+                                            <button onClick={() => handleGetReviewFive(`${setStarFiverStarColor("text-yellow-500")}`)} className={`${starFiverStarColor}`} disabled={count !== 4} type="button" title="Rate 5 stars" name="five" aria-label="Rate 5 stars">
+                                                <FaStar className='text-4xl'></FaStar>
                                             </button>
                                         </div>
                                     </div>
                                     <form onSubmit={handlePostReview}>
                                         <div className="flex flex-col w-full">
-                                            <textarea rows="3" name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-black border shadow-2xl mb-5"></textarea>
+                                            <textarea disabled={count === 0} rows="3" name="message" placeholder="Message..." className="p-4 rounded-md resize-none dark:text-black border shadow-2xl mb-5"></textarea>
                                             <button type="submit" className="btn px-32 mb-3 text-white bg-orange-600 border-0 hover:bg-orange-800">Post Feedback</button>
                                         </div>
                                         {/* <div>

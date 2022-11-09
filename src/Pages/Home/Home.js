@@ -13,6 +13,7 @@ import Imagefour from '../../assets/images/section-images/half-grilled-chicken-p
 const Home = () => {
     //Load Data From Loader
     const services = useLoaderData()
+
     return (
         <div className='mb-20'>
             {/* Banner Section  */}
