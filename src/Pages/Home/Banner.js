@@ -15,39 +15,44 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 
 
 //Picture Import 
-import Image from '../../assets/images/wasa-crispbread-ZMyloE5ySeA-unsplash.jpg'
+import Breakfast from '../../assets/images/banner/breakfast.jpg';
+import Lunch from '../../assets/images/banner/lunch.jpg';
+import Dinner from '../../assets/images/banner/dinner.jpg';
+import Tiffin from '../../assets/images/banner/school-tiffin.jpg';
+import Office from '../../assets/images/banner/office-food.jpg';
+import Birthday from '../../assets/images/banner/birthday-cake.jpg';
 
 //Banner Data 
 const data = [
     {
         "title": "Premium Breakfast For You",
         "subTitle": "Breakfast Today",
-        "image": Image
+        "image": Breakfast
     },
     {
         "title": "Healthy School Tiffin Today",
         "subTitle": "Tiffin Today",
-        "image": Image
+        "image": Tiffin
     },
     {
         "title": "Premium Lunch For You",
         "subTitle": "Lunch Today",
-        "image": Image
+        "image": Lunch
     },
     {
         "title": "Quality Office Food Delivery",
         "subTitle": "Quality Food Today",
-        "image": Image
+        "image": Office
     },
     {
-        "title": "Gorgrous Birthday Food",
+        "title": "Gorgrous Birthday Cake",
         "subTitle": "Happy Birthday",
-        "image": Image
+        "image": Birthday
     },
     {
         "title": "Premium Dinner For You",
         "subTitle": "Dinner Today",
-        "image": Image
+        "image": Dinner
     }
 ]
 
