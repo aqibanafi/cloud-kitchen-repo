@@ -12,7 +12,6 @@ import Globe from '../../assets/icons/international.png'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import UserReview from '../UserReview/UserReview';
 import { FaStar } from 'react-icons/fa';
-import { format, formatDistanceToNow } from 'date-fns'
 import toast from 'react-hot-toast';
 
 const ServiceDetailPage = () => {
@@ -36,14 +35,6 @@ const ServiceDetailPage = () => {
     //Review Star Disable
     const [count, setCount] = useState(0)
 
-    //Date and Review Time
-    const date = new Date();
-
-    const reviewTime = formatDistanceToNow(
-        new Date(date),
-        { includeSeconds: true }
-    )
-
     //Button To Post New Review
     const handlePostReview = event => {
         event.preventDefault();
@@ -57,7 +48,7 @@ const ServiceDetailPage = () => {
         const review = {
             name,
             email,
-            reviewTime,
+            date: new Date(),
             image,
             message,
             ratingComment: `${reviewStar === 1 ? "Poor" : reviewStar === 2 ? "Below Average" : reviewStar === 3 ? "Average" : reviewStar === 4 ? "Good" : reviewStar === 5 ? "Excellent" : ""}`,

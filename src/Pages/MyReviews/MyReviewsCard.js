@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { formatDistanceToNow } from 'date-fns'
 
 const MyReviewsCard = ({ reviews, handleDelete }) => {
     //Destructure Properticies
-    const { _id, name, image, message, rating, ratingComment, reviewTime } = reviews;
+    const { _id, name, image, message, rating, ratingComment, date } = reviews;
+
+    //Date Function
+    const reviewTime = formatDistanceToNow(
+        new Date(date),
+        { includeSeconds: true }
+    )
 
     return (
         <div>

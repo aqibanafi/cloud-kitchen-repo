@@ -1,7 +1,14 @@
 import React from 'react';
+import { formatDistanceToNow } from 'date-fns'
 
 const UserReviewCard = ({ reviews }) => {
-    const { name, image, message, rating, reviewTime, ratingComment } = reviews;
+    const { name, image, message, rating, ratingComment, date } = reviews;
+
+    //Date Function
+    const reviewTime = formatDistanceToNow(
+        new Date(date),
+        { includeSeconds: true }
+    )
 
     return (
         <div>
