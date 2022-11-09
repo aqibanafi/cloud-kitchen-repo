@@ -32,7 +32,7 @@ const LimitedServices = ({ service }) => {
                 </div>
                 <div className='mt-12'>
                     <Link to={`/servicedetail/${_id}`}>
-                        <button className="btn btn-success text-white bg-orange-600 border-0 px-20 hover:bg-orange-800">Success</button>
+                        <button className="btn btn-success text-white bg-orange-600 border-0 px-20 hover:bg-orange-800">view details</button>
                     </Link>
                 </div>
             </div>
