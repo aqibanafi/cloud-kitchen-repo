@@ -42,14 +42,31 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         googleProviderLogin(googleProvider)
             .then(result => {
-                toast.success("You Have Successfully Logged in")
                 const user = result.user;
                 console.log(user);
+                const currentUser = {
+                    email: user?.email
+                }
+
                 navigate(from, { replace: true });
+                toast.success("You Have Successfully Logged in")
+                //Get JWT Token
+                fetch('https://assignment-11-superkitch-server-side.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('superkitch', data.token)
+                        navigate(from, { replace: true })
+
+                    })
             })
             .catch(error => console.error(error))
     }
-
 
     //Handle Login
     const handleSubmit = event => {
@@ -71,7 +88,7 @@ const Login = () => {
                 navigate(from, { replace: true });
 
                 //Get JWT Token
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://assignment-11-superkitch-server-side.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

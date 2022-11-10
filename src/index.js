@@ -4,10 +4,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import ScrollToTop from "react-scroll-to-top";
+import { FaArrowUp } from 'react-icons/fa';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <ScrollToTop
+      smooth
+      component={<FaArrowUp className='mx-auto text-xl text-orange-600'></FaArrowUp>}
+    >
+    </ScrollToTop>
     <AuthProvider>
       <App />
     </AuthProvider>

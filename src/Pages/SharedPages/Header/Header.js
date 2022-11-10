@@ -18,6 +18,7 @@ const Header = () => {
             .then(() => {
                 toast.error("You Have Logged Out")
                 navigate('/')
+                localStorage.removeItem('superkitch');
             })
             .catch(error => console.error(error))
     }
@@ -40,10 +41,12 @@ const Header = () => {
                                         <li><Link to='/myreviews'>My Reviews</Link></li>
                                         <li><Link to='/addservice'>Add Services</Link></li>
                                         <div>
-                                            <div className='flex items-center p-3 rounded-xl gap-5 border shadow-2xl'>
-                                                <img className='h-10 w-10 rounded-full' src={user.photoURL} alt="" />
-                                                <p className='font-bold '>Welcome, {user?.displayName}</p>
-                                            </div>
+                                            <Link to='/dashboard'>
+                                                <div className='flex items-center p-3 rounded-xl gap-5 border shadow-2xl'>
+                                                    <img className='h-10 w-10 rounded-full' src={user?.photoURL} alt="" />
+                                                    <p className='font-bold '>Welcome, {user?.displayName}</p>
+                                                </div>
+                                            </Link>
                                             <div className='flex items-center mt-3'>
                                                 <button onClick={handleLogOut} className="btn glass text-white font-bold ml-10">log out</button>
                                             </div>
@@ -76,10 +79,12 @@ const Header = () => {
                                     <li><Link to='/blog'>Blog</Link></li>
                                     <li><Link to='/myreviews'>My Reviews</Link></li>
                                     <li><Link to='/addservice'>Add Services</Link></li>
-                                    <div className='flex items-center p-3 rounded-xl ml-3 gap-5 border shadow-2xl'>
-                                        <img className='h-10 w-10 rounded-full' src={user.photoURL} alt="" />
-                                        <p className='font-bold '>Welcome, {user?.displayName}</p>
-                                    </div>
+                                    <Link to='/dashboard'>
+                                        <div className='flex items-center p-3 rounded-xl ml-3 gap-5 border shadow-2xl'>
+                                            <img className='h-10 w-10 rounded-full' src={user.photoURL} alt="" />
+                                            <p className='font-bold '>Welcome, {user?.displayName}</p>
+                                        </div>
+                                    </Link>
                                     <div className='flex items-center'>
                                         <button onClick={handleLogOut} className="btn glass text-white font-bold ml-10">log out</button>
                                     </div>

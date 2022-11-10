@@ -20,7 +20,7 @@ const Blog = () => {
                     <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
                         {/* Blog One  */}
                         <article className="flex flex-col shadow-xl border h-[450px]">
-                            <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={SQL} />
+                            <img alt="" className="object-cover w-full h-52 rounded-lg p-5 hover:scale-105 duration-300 ease-out" src={SQL} />
                             <div className="flex flex-col flex-1 p-6">
                                 <Link rel="noopener noreferrer" href="#" alt='' className="text-xs tracking-wider uppercase hover:underline text-orange-500">Language</Link>
                                 <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">Difference between SQL and NoSQL?</h3>
@@ -39,7 +39,7 @@ const Blog = () => {
                         {/* Blog Two  */}
                         <article className="flex flex-col shadow-xl border h-[450px]">
                             <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
-                                <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={JWT} />
+                                <img alt="" className="object-cover w-full h-52 rounded-lg p-5 hover:scale-105 duration-300 ease-out" src={JWT} />
                             </Link>
                             <div className="flex flex-col flex-1 p-6">
                                 <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></Link>
@@ -60,7 +60,7 @@ const Blog = () => {
                         {/* Blog Three  */}
                         <article className="flex flex-col shadow-xl border h-[450px]">
                             <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
-                                <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={Node} />
+                                <img alt="" className="object-cover w-full h-52 rounded-lg p-5 hover:scale-105 duration-300 ease-out" src={Node} />
                             </Link>
                             <div className="flex flex-col flex-1 p-6">
                                 <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></Link>
@@ -81,7 +81,7 @@ const Blog = () => {
                         {/* Blog Four  */}
                         <article className="flex flex-col shadow-xl border h-[450px]">
                             <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
-                                <img alt="" className="object-cover w-full h-52 dark:bg-gray-500" src={Nodejs} />
+                                <img alt="" className="object-cover w-full h-52 rounded-lg p-5 hover:scale-105 duration-300 ease-out" src={Nodejs} />
                             </Link>
                             <div className="flex flex-col flex-1 p-6">
                                 <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum"></Link>

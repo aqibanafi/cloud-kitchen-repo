@@ -4,7 +4,7 @@ import { formatDistanceToNow } from 'date-fns'
 
 const MyReviewsCard = ({ reviews, handleDelete }) => {
     //Destructure Properticies
-    const { _id, name, image, message, rating, ratingComment, date } = reviews;
+    const { _id, name, image, message, rating, ratingComment, date, title } = reviews;
 
     //Date Function
     const reviewTime = formatDistanceToNow(
@@ -16,13 +16,16 @@ const MyReviewsCard = ({ reviews, handleDelete }) => {
         <div>
             <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-orange-500 dark:text-black border shadow-xl">
                 <div className="flex items-center justify-between p-4">
-                    <div className="flex space-x-4">
+                    <div className="flex flex-col">
                         <div>
-                            <img src={image} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                            <img src={image} alt="" className="object-cover w-12 h-12 mb-3 rounded-full dark:bg-gray-500" />
                         </div>
                         <div>
                             <h4 className="font-bold">{name}</h4>
                             <span className="text-xs dark:text-gray-400">{reviewTime}</span>
+                        </div>
+                        <div>
+                            <small><p className='font-semibold'>Service Title: <span className='text-orange-500 font-bold'>{title}</span></p></small>
                         </div>
                     </div>
                     <div className="flex flex-col items-center space-x-2 dark:text-yellow-500">

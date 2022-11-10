@@ -73,7 +73,7 @@ const UpdateReview = () => {
     const handleUpdateReview = event => {
         event.preventDefault()
         const form = event.target;
-        fetch(`http://localhost:5000/myreviews/${reviews._id}`, {
+        fetch(`https://assignment-11-superkitch-server-side.vercel.app/myreviews/${reviews._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -156,7 +156,7 @@ const UpdateReview = () => {
                     </div>
                     <div className='flex justify-center'>
                         <div>
-                            <button type='submit' className="btn border-0 bg-orange-500 text-white px-12 font-bold">Edit Review</button>
+                            <button type='submit' className="btn border-0 bg-orange-500 text-white px-12 font-bold hover:bg-orange-700">Edit Review</button>
                         </div>
                     </div>
                 </form>

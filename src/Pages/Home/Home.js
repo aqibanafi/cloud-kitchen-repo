@@ -47,7 +47,7 @@ const Home = () => {
                         <span className='bg-orange-600 p-2'>Call us</span>
                         <p className='text-3xl font-bold mb-5'>+1-202-555-016</p>
                         <div className='flex flex-col gap-10'>
-                            <div className='flex gap-5'>
+                            <div className='flex flex-wrap gap-5'>
                                 <div>
                                     <img className='w-20' src={Clock} alt="" />
                                 </div>
@@ -57,7 +57,7 @@ const Home = () => {
                                     <p><small>sun:</small> 12.00 – 21.00</p>
                                 </div>
                             </div>
-                            <div className='flex gap-5'>
+                            <div className='flex flex-wrap gap-5'>
                                 <div>
                                     <img className='w-20' src={Location} alt="" />
                                 </div>

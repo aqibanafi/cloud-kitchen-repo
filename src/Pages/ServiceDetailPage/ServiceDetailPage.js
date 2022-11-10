@@ -57,10 +57,11 @@ const ServiceDetailPage = () => {
             message,
             ratingComment: `${reviewStar === 1 ? "Poor" : reviewStar === 2 ? "Below Average" : reviewStar === 3 ? "Average" : reviewStar === 4 ? "Good" : reviewStar === 5 ? "Excellent" : ""}`,
             rating: reviewStar,
-            serviceid: _id
+            serviceid: _id,
+            title: title
         }
         console.log(review)
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-11-superkitch-server-side.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -110,7 +111,7 @@ const ServiceDetailPage = () => {
     }
 
     return (
-        <div className='mt-20'>
+        <div>
 
             {/* Service Section  */}
 
@@ -122,7 +123,7 @@ const ServiceDetailPage = () => {
                     <img className='w-[800px]' src={image} alt="" />
                 </div>
                 <div className='container mx-auto'>
-                    <div className='mt-10'>
+                    <div className='mt-10 bg-orange-100 p-10'>
                         <p>{description}</p>
                     </div>
                     <div className='mt-20'>

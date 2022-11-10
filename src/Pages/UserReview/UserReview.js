@@ -11,7 +11,7 @@ const UserReview = () => {
     const [review, setReview] = useState([])
     //Load Query Data 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?serviceid=${allReviews._id}`)
+        fetch(`https://assignment-11-superkitch-server-side.vercel.app/reviews?serviceid=${allReviews._id}`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [allReviews._id, review])

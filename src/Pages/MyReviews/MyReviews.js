@@ -17,7 +17,7 @@ const MyReviews = () => {
 
     //Load Data By Use Effects
     useEffect(() => {
-        fetch(`http://localhost:5000/myreviews?email=${user?.email}`, {
+        fetch(`https://assignment-11-superkitch-server-side.vercel.app/myreviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('superkitch')}`
             }
@@ -35,8 +35,8 @@ const MyReviews = () => {
     //Sweet Alert For Delete Review 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
-            confirmButton: 'btn btn-success',
-            cancelButton: 'btn btn-danger'
+            confirmButton: 'btn bg-orange-600 font-bold hover:bg-orange-800 border-0 text-white ml-5',
+            cancelButton: 'btn border-0 bg-red-500 text-white font-bold hover:bg-red-700'
         },
         buttonsStyling: false
     })
@@ -53,7 +53,7 @@ const MyReviews = () => {
         }).then((result) => {
             if (result.isConfirmed) {
                 console.log(result)
-                fetch(`http://localhost:5000/reviews/${id}`, {
+                fetch(`https://assignment-11-superkitch-server-side.vercel.app/reviews/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

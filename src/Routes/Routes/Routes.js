@@ -6,6 +6,7 @@ import Blog01 from "../../Pages/Blog/Blog01";
 import Blog02 from "../../Pages/Blog/Blog02";
 import Blog03 from "../../Pages/Blog/Blog03";
 import Blog04 from "../../Pages/Blog/Blog04";
+import Dashboard from "../../Pages/Dashboard/Dashboard";
 import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Banner from "../../Pages/Home/Banner";
 import Home from "../../Pages/Home/Home";
@@ -26,21 +27,21 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/homeservices')
+                loader: () => fetch('https://assignment-11-superkitch-server-side.vercel.app/homeservices')
             },
             {
                 path: '/services',
                 element: <Services></Services>,
-                loader: () => fetch('http://localhost:5000/services')
+                loader: () => fetch('https://assignment-11-superkitch-server-side.vercel.app/services')
             },
             {
-                path:'/banner',
+                path: '/banner',
                 element: <Banner></Banner>
             },
             {
                 path: '/servicedetail/:id',
                 element: <ServiceDetailPage></ServiceDetailPage>,
-                loader: ({params}) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-superkitch-server-side.vercel.app/service/${params.id}`)
             },
             {
                 path: '/login',
@@ -57,7 +58,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/updatereview/:id',
                 element: <UpdateReview></UpdateReview>,
-                loader: ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-11-superkitch-server-side.vercel.app/reviews/${params.id}`)
             },
             {
                 path: '/addservice',
@@ -66,7 +67,7 @@ export const routes = createBrowserRouter([
             {
                 path: '/userreview',
                 element: <UserReview></UserReview>,
-                loader: () => fetch('http://localhost:5000/allreviews')
+                loader: () => fetch('https://assignment-11-superkitch-server-side.vercel.app/allreviews')
             },
             {
                 path: '/blog',
@@ -91,6 +92,10 @@ export const routes = createBrowserRouter([
             {
                 path: '*',
                 element: <ErrorPage></ErrorPage>
+            },
+            {
+                path: '/dashboard',
+                element: <Dashboard></Dashboard>
             }
         ]
     }
