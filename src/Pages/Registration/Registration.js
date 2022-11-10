@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../assets/images/logo.png'
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -25,8 +25,6 @@ const Registration = () => {
 
     //Navigate and Location
     const navigate = useNavigate()
-    const location = useLocation()
-    const from = location.state?.from?.pathname || '/';
 
     //Get Name
     const [name, setName] = useState(null)
@@ -49,13 +47,29 @@ const Registration = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                setError(' ')
-                form.reset()
-                navigate('/login')
-                handleUpdateUserProfile(name, photoURL)
-                toast.success("Account Created Successfully")
-                logOut()
-                    .catch(error => console.error(error))
+                const currentUser = {
+                    email: user?.email
+                }
+                //Get JWT Token
+                fetch('https://assignment-11-superkitch-server-side.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('superkitch', data.token)
+                        toast.success("Account Created Successfully")
+                        handleUpdateUserProfile(name, photoURL)
+                        logOut();
+                        navigate('/login')
+                    })
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error)
             })
     }
 
@@ -68,9 +82,28 @@ const Registration = () => {
                 toast.success("You Have Successfully Logged in")
                 const user = result.user;
                 console.log(user);
-                navigate(from, { replace: true });
+                const currentUser = {
+                    email: user?.email
+                }
+                //Get JWT Token
+                fetch('https://assignment-11-superkitch-server-side.vercel.app/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('superkitch', data.token)
+                        toast.success("Account Created Successfully")
+                        navigate('/login')
+                    })
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error)
+            })
     }
 
     //Handle Update User Profile 

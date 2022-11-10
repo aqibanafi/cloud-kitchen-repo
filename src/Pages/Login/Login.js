@@ -47,8 +47,6 @@ const Login = () => {
                 const currentUser = {
                     email: user?.email
                 }
-
-                navigate(from, { replace: true });
                 toast.success("You Have Successfully Logged in")
                 //Get JWT Token
                 fetch('https://assignment-11-superkitch-server-side.vercel.app/jwt', {
@@ -80,12 +78,10 @@ const Login = () => {
                 const user = result.user;
                 console.log(user)
                 const currentUser = {
-                    email: user.email
+                    email: user?.email
                 }
-                toast.success("Login Successful")
                 form.reset()
                 setError(' ')
-                navigate(from, { replace: true });
 
                 //Get JWT Token
                 fetch('https://assignment-11-superkitch-server-side.vercel.app/jwt', {
@@ -98,6 +94,7 @@ const Login = () => {
                     .then(res => res.json())
                     .then(data => {
                         localStorage.setItem('superkitch', data.token)
+                        toast.success("Login Successful")
                         navigate(from, { replace: true })
 
                     })

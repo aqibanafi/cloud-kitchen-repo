@@ -29,6 +29,7 @@ Hosted By Firebase -> [Superkitch](https://assignment-11-project-421b1.web.app)
 * Daisy UI
 * React Sweet Alert
 * AOS Animation
+* Scroll Restoration
 
 
 # Installation

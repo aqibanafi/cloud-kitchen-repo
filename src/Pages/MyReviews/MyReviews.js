@@ -17,15 +17,18 @@ const MyReviews = () => {
 
     //Load Data By Use Effects
     useEffect(() => {
+        if (!user?.email) {
+            return
+        }
         fetch(`https://assignment-11-superkitch-server-side.vercel.app/myreviews?email=${user?.email}`, {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('superkitch')}`
             }
         })
             .then(res => {
-                if (res.status === 401 || res.status === 403) {
-                    logOut()
-                }
+                // if (res.status === 401 || res.status === 403) {
+                //     logOut()
+                // }
                 return res.json()
             })
             .then(data => setReview(data))
