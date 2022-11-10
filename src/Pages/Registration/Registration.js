@@ -15,7 +15,7 @@ const Registration = () => {
     useTitle("Registration")
 
     //Import Auth Info 
-    const { createUser, updateUserProfile, googleProviderLogin } = useContext(AuthContext)
+    const { createUser, updateUserProfile, googleProviderLogin, logOut } = useContext(AuthContext)
 
     //Set Error State
     const [error, setError] = useState('')
@@ -54,6 +54,8 @@ const Registration = () => {
                 navigate('/login')
                 handleUpdateUserProfile(name, photoURL)
                 toast.success("Account Created Successfully")
+                logOut()
+                .catch(error => console.error(error))
             })
     }
 
@@ -100,11 +102,11 @@ const Registration = () => {
                                     alt="Your Company"
                                 />
                                 <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-                                    Please Registration To Get Admission
+                                    Please Registration To Get Access
                                 </h2>
                                 <p className="mt-2 text-center text-sm text-gray-600">
                                     Or{' '}
-                                    <Link to='/trial' className="font-medium text-amber-500 hover:text-amber-700">
+                                    <Link className="font-medium text-amber-500 hover:text-amber-700">
                                         start your 14-day free trial
                                     </Link>
                                 </p>
@@ -188,7 +190,7 @@ const Registration = () => {
                                             className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                         />
                                         <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-900">
-                                            Accept <Link to='/termsnconditions' className='text-amber-500'>Terms & Conditions</Link>
+                                            Accept <Link className='text-amber-500'>Terms & Conditions</Link>
                                         </label>
                                     </div>
 

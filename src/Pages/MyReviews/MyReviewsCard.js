@@ -14,7 +14,7 @@ const MyReviewsCard = ({ reviews, handleDelete }) => {
 
     return (
         <div>
-            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-orange-500 dark:text-black border shadow-xl">
+            <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-orange-500 dark:text-black border shadow-xl" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                 <div className="flex items-center justify-between p-4">
                     <div className="flex flex-col">
                         <div>

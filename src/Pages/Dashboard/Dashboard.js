@@ -27,10 +27,10 @@ const Dashboard = () => {
     }, [user?.email, logOut])
 
     return (
-        <div className='flex flex-col justify-center items-center mt-20 mb-20'>
-            <h1 className='text-center text-5xl font-bold text-orange-500 mb-20'>Your Profile</h1>
-            <div className="w-3/6 flex justify-center p-20 sm:flex sm:space-x-6 text-black border shadow-xl">
-                <div className="flex-shrink-0 w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
+        <div className='flex flex-col justify-center items-center mt-40 mb-40'>
+            <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>Your Profile</h1>
+            <div className="w-3/6 flex flex-wrap gap-10 justify-center items-center p-20 sm:flex sm:space-x-6 text-black border shadow-xl" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
+                <div className="flex w-full mb-6 h-44 sm:h-32 sm:w-32 sm:mb-0">
                     <img src={user?.photoURL} alt="" className="object-cover object-center w-full h-full rounded dark:bg-gray-500" />
                 </div>
                 <div className="flex flex-col space-y-4">

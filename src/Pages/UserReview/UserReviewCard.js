@@ -12,7 +12,7 @@ const UserReviewCard = ({ reviews }) => {
 
     return (
         <div>
-            <div className="container flex flex-col w-full border shadow-xlp-6 mx-auto divide-y rounded-md divide-orange-500 dark:text-gray-100">
+            <div className="container flex flex-col w-full border shadow-xlp-6 mx-auto divide-y rounded-md divide-orange-500 dark:text-gray-100" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>

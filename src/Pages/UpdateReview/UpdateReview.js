@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { FaStar } from 'react-icons/fa';
 import { formatDistanceToNow } from 'date-fns'
@@ -9,7 +9,7 @@ const UpdateReview = () => {
 
     //Set Page Title
     useTitle("Update Review")
-    
+
     //Load Data By Use Loader
     const reviews = useLoaderData();
 
@@ -37,6 +37,9 @@ const UpdateReview = () => {
         new Date(date),
         { includeSeconds: true }
     )
+
+    //Nevigate
+    const navigate = useNavigate();
 
     //All Functions To Get Value For Posting Review
     const handleGetReviewOne = () => {
@@ -85,6 +88,7 @@ const UpdateReview = () => {
                 if (data.modifiedCount > 0) {
                     toast.success("Your Review is Updated")
                     form.reset();
+                    navigate('/myreviews')
                 }
             })
     }
@@ -104,9 +108,9 @@ const UpdateReview = () => {
         setReview(newReview)
     }
     return (
-        <div className='mt-20 mb-20'>
-            <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>Update Review Here</h1>
-            <div className="container border shadow-xl flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-orange-500 dark:text-black">
+        <div className='mt-20 mb-48'>
+            <h1 className='text-center text-5xl font-bold text-orange-500 mb-20'>Update Review Here</h1>
+            <div className="container border shadow-xl flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md divide-orange-500 dark:text-black" data-aos="fade-up-right">
                 <div className="flex justify-between p-4">
                     <div className="flex space-x-4">
                         <div>

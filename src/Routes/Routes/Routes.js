@@ -31,8 +31,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/services',
-                element: <Services></Services>,
-                loader: () => fetch('https://assignment-11-superkitch-server-side.vercel.app/services')
+                element: <Services></Services>
             },
             {
                 path: '/banner',
@@ -57,7 +56,7 @@ export const routes = createBrowserRouter([
             },
             {
                 path: '/updatereview/:id',
-                element: <UpdateReview></UpdateReview>,
+                element: <PrivateRoutes><UpdateReview></UpdateReview></PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://assignment-11-superkitch-server-side.vercel.app/reviews/${params.id}`)
             },
             {

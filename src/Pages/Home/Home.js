@@ -29,7 +29,7 @@ const Home = () => {
                 <div>
                     <h1 className='text-center text-5xl font-bold text-orange-500 mb-12'>My Latest Services</h1>
                 </div>
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center'>
+                <div className='container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 justify-center'>
                     {
                         services.map(service => <LimitedServices key={service._id} service={service}></LimitedServices>)
                     }
@@ -46,7 +46,7 @@ const Home = () => {
                     <div className='bg-gray-800 text-white p-[114px] flex flex-col items-center gap-5'>
                         <span className='bg-orange-600 p-2'>Call us</span>
                         <p className='text-3xl font-bold mb-5'>+1-202-555-016</p>
-                        <div className='flex flex-col gap-10'>
+                        <div className='flex flex-col gap-10' data-aos="fade-right">
                             <div className='flex flex-wrap gap-5'>
                                 <div>
                                     <img className='w-20' src={Clock} alt="" />
@@ -57,7 +57,7 @@ const Home = () => {
                                     <p><small>sun:</small> 12.00 – 21.00</p>
                                 </div>
                             </div>
-                            <div className='flex flex-wrap gap-5'>
+                            <div className='flex flex-wrap gap-5' data-aos="fade-right">
                                 <div>
                                     <img className='w-20' src={Location} alt="" />
                                 </div>
@@ -68,7 +68,7 @@ const Home = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className='flex gap-3 mt-3'>
+                        <div className='flex gap-3 mt-3' data-aos="fade-right">
                             <div className='bg-white p-3'>
                                 <FaFacebookF className='text-black font-bold text-xl'></FaFacebookF>
                             </div>
@@ -86,12 +86,12 @@ const Home = () => {
                 </div>
                 <div className='flex h-full w-full'>
                     <div>
-                        <img className='h-[320px] w-[500px]' src={Imageone} alt="" />
-                        <img className='h-[320px] w-[500px]' src={Imagetwo} alt="" />
+                        <img className='h-[320px] w-[500px]' src={Imageone} alt="" data-aos="zoom-in" />
+                        <img className='h-[320px] w-[500px]' src={Imagetwo} alt="" data-aos="zoom-in" />
                     </div>
                     <div>
-                        <img className='h-[320px] w-[500px]' src={Imagethree} alt="" />
-                        <img className='h-[320px] w-[500px]' src={Imagefour} alt="" />
+                        <img className='h-[320px] w-[500px]' src={Imagethree} alt="" data-aos="zoom-in" />
+                        <img className='h-[320px] w-[500px]' src={Imagefour} alt="" data-aos="zoom-in" />
                     </div>
                 </div>
             </div>
@@ -101,7 +101,7 @@ const Home = () => {
                     <img className="absolute inset-0 object-cover w-full h-full" src="https://i.ibb.co/jrqSMXS/dinner.jpg" alt="" />
                 </div>
                 <div className='flex justify-center items-center pt-[200px]'>
-                    <div className='relative flex flex-col gap-5'>
+                    <div className='relative flex flex-col gap-5' data-aos="zoom-out-up">
                         <h2 className='font-bold text-5xl'>Premium Dinner Service</h2>
                         <p>This chiken's name explains itself. Of course, you can also top it
                             with crisp lettuce, tomatoes and anything else.</p>

@@ -19,7 +19,7 @@ const Blog = () => {
                     </div>
                     <div className="grid grid-cols-1 gap-x-4 gap-y-8 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
                         {/* Blog One  */}
-                        <article className="flex flex-col shadow-xl border h-[450px]">
+                        <article className="flex flex-col shadow-xl border h-[450px]" data-aos="fade-up" data-aos-duration="3000">
                             <img alt="" className="object-cover w-full h-52 rounded-lg p-5 hover:scale-105 duration-300 ease-out" src={SQL} />
                             <div className="flex flex-col flex-1 p-6">
                                 <Link rel="noopener noreferrer" href="#" alt='' className="text-xs tracking-wider uppercase hover:underline text-orange-500">Language</Link>
@@ -37,7 +37,7 @@ const Blog = () => {
                         </article>
 
                         {/* Blog Two  */}
-                        <article className="flex flex-col shadow-xl border h-[450px]">
+                        <article className="flex flex-col shadow-xl border h-[450px]" data-aos="fade-up" data-aos-duration="3000">
                             <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                                 <img alt="" className="object-cover w-full h-52 rounded-lg p-5 hover:scale-105 duration-300 ease-out" src={JWT} />
                             </Link>
@@ -58,7 +58,7 @@ const Blog = () => {
                         </article>
 
                         {/* Blog Three  */}
-                        <article className="flex flex-col shadow-xl border h-[450px]">
+                        <article className="flex flex-col shadow-xl border h-[450px]" data-aos="fade-up" data-aos-duration="3000">
                             <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                                 <img alt="" className="object-cover w-full h-52 rounded-lg p-5 hover:scale-105 duration-300 ease-out" src={Node} />
                             </Link>
@@ -79,7 +79,7 @@ const Blog = () => {
                         </article>
 
                         {/* Blog Four  */}
-                        <article className="flex flex-col shadow-xl border h-[450px]">
+                        <article className="flex flex-col shadow-xl border h-[450px]" data-aos="fade-up" data-aos-duration="3000">
                             <Link rel="noopener noreferrer" href="#" aria-label="Te nulla oportere reprimique his dolorum">
                                 <img alt="" className="object-cover w-full h-52 rounded-lg p-5 hover:scale-105 duration-300 ease-out" src={Nodejs} />
                             </Link>

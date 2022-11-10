@@ -130,7 +130,7 @@ const Login = () => {
                             </h2>
                             <p className="mt-2 text-center text-sm text-gray-600">
                                 Or{' '}
-                                <Link to='/trial' className="font-medium text-amber-500 hover:text-amber-700">
+                                <Link className="font-medium text-amber-500 hover:text-amber-700">
                                     start your 14-day free trial
                                 </Link>
                             </p>
@@ -200,7 +200,7 @@ const Login = () => {
                                 </div>
                                 <div className="text-sm">
                                     <div href="#" className="font-normal">
-                                        New to this website? Please <Link to='/registration' className='text-amber-500'>Registration</Link>
+                                        New to this website? Please <Link to='/registration' className='text-amber-500 font-bold text-xl ml-3'>Registration</Link>
                                     </div>
                                 </div>
                             </div>

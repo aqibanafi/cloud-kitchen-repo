@@ -8,7 +8,7 @@ const LimitedServices = ({ service }) => {
     //Distructure Data 
     const { _id, title, image, description, rating, price } = service;
     return (
-        <div>
+        <div data-aos="fade-up">
             <div className='flex flex-col items-center p-10 shadow-xl border rounded-xl'>
                 <div className='mb-10'>
                     <PhotoProvider>

@@ -45,7 +45,7 @@ const AddNewService = () => {
     }
     return (
         <div className='container mx-auto mt-20'>
-            <h1 className='text-center text-5xl font-bold text-orange-500 mb-12 mt-10'>Add New Service</h1>
+            <h1 className='text-center text-5xl font-bold text-orange-500 mb-20 mt-10'>Add New Service</h1>
             <div className='flex justify-center'>
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 items-center mb-32'>
                     <div className='w-full'>
@@ -60,7 +60,7 @@ const AddNewService = () => {
                                             Service Title
                                         </label>
                                         <input
-                                            placeholder="title of your service"
+                                            placeholder="Title..."
                                             required
                                             type="text"
                                             className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -75,7 +75,7 @@ const AddNewService = () => {
                                             Service Image URL
                                         </label>
                                         <input
-                                            placeholder="provide image url"
+                                            placeholder="URL..."
                                             required
                                             type="text"
                                             className="w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -91,7 +91,7 @@ const AddNewService = () => {
                                         Service Price
                                     </label>
                                     <input
-                                        placeholder="input price of your service"
+                                        placeholder="Price..."
                                         required
                                         type="text"
                                         className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
@@ -107,7 +107,7 @@ const AddNewService = () => {
                                     </label>
                                     <textarea
                                         cols="20" rows="10"
-                                        placeholder="type detail of your service"
+                                        placeholder="Description..."
                                         required
                                         type="text"
                                         className="w-full px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
