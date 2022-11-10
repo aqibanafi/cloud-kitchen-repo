@@ -107,7 +107,9 @@ const Home = () => {
                             with crisp lettuce, tomatoes and anything else.</p>
                         <p className='font-bold text-5xl'>$ 210</p>
                         <div className='mt-2'>
-                            <button className="btn btn-outline btn-accent px-10">Order now</button>
+                            <Link to='/services'>
+                                <button className="btn btn-outline btn-accent px-10">Order now</button>
+                            </Link>
                         </div>
                     </div>
                 </div>

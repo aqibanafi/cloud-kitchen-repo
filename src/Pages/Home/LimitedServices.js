@@ -9,7 +9,7 @@ const LimitedServices = ({ service }) => {
     const { _id, title, image, description, rating, price } = service;
     return (
         <div data-aos="fade-up">
-            <div className='flex flex-col items-center p-10 shadow-xl border rounded-xl'>
+            <div className='flex flex-col items-center p-10 shadow-xl border rounded-xl h-full'>
                 <div className='mb-10'>
                     <PhotoProvider>
                         <PhotoView src={image}>
@@ -19,10 +19,15 @@ const LimitedServices = ({ service }) => {
                 </div>
                 <div>
                     <h2 className='text-3xl font-bold mb-5'>{title}</h2>
-                    <p className='mb-5'>{description.length > 100 ? description.slice(0, 100) + '...' : description.length}</p>
+                    {
+                        description.length > 100 ?
+                            <p className='mb-5'>{description.slice(0, 100) + '...'}</p>
+                            :
+                            <p className='mb-5'>{description}</p>
+                    }
                     <div className='flex gap-32'>
                         <div>
-                            <p className='font-bold'>Price: $ {price} <small>/person</small></p>
+                            <p className='font-bold'>Price: $ <span className='text-orange-500 text-xl'>{price}</span> <small>/person</small></p>
                         </div>
                         <div className='flex items-center gap-2'>
                             <p>Ratings: {rating}</p>

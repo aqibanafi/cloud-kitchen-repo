@@ -55,7 +55,7 @@ const Registration = () => {
                 handleUpdateUserProfile(name, photoURL)
                 toast.success("Account Created Successfully")
                 logOut()
-                .catch(error => console.error(error))
+                    .catch(error => console.error(error))
             })
     }
 

@@ -3,11 +3,16 @@ import Lottie from "lottie-react";
 import Addservice from '../../assets/lottie/add-new-service.json';
 import toast from 'react-hot-toast';
 import useTitle from '../../hooks/useTitle';
+import { useNavigate } from 'react-router-dom';
 
 const AddNewService = () => {
 
     //Set Page Title
     useTitle("Add New Service")
+
+    //Navigate
+    const navigate = useNavigate();
+
     //Add New Service Button 
     const handleAddNewService = event => {
         event.preventDefault()
@@ -39,6 +44,8 @@ const AddNewService = () => {
             .then(data => {
                 if (data.acknowledged) {
                     toast.success("You Have Successfully Added a Service")
+                    form.reset()
+                    navigate('/');
                 }
             })
             .catch(error => console.error(error))
@@ -83,21 +90,40 @@ const AddNewService = () => {
                                         />
                                     </div>
                                 </div>
-                                <div className="mb-1 sm:mb-2">
-                                    <label
-                                        htmlFor="email"
-                                        className="inline-block mb-2 font-medium"
-                                    >
-                                        Service Price
-                                    </label>
-                                    <input
-                                        placeholder="Price..."
-                                        required
-                                        type="text"
-                                        className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                                        name="price"
-                                    />
+                                <div className='grid grid-cols-1 lg:grid-cols-2 gap-10'>
+                                    <div className="mb-1 sm:mb-2">
+                                        <label
+                                            htmlFor="email"
+                                            className="inline-block mb-2 font-medium"
+                                        >
+                                            Service Price
+                                        </label>
+                                        <input
+                                            placeholder="Price..."
+                                            required
+                                            type="text"
+                                            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                            name="price"
+                                        />
+                                    </div>
+                                    <div className="mb-1 sm:mb-2">
+                                        <label
+                                            htmlFor="email"
+                                            className="inline-block mb-2 font-medium"
+                                        >
+                                            Service Rating
+                                        </label>
+                                        <input
+                                            placeholder="Rating..."
+                                            required
+                                            type="text"
+                                            className="flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                                            name="rating"
+                                        />
+                                    </div>
                                 </div>
+
+
                                 <div className="mb-1 w-full">
                                     <label
                                         htmlFor="email"

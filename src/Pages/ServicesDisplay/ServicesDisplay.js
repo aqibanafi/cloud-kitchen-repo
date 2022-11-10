@@ -20,9 +20,14 @@ const ServicesDisplay = ({ service }) => {
             </div>
             <div>
                 <h2 className='text-3xl font-bold mb-5'>{title}</h2>
-                <p className='mb-5'>{description.length > 100 ? description.slice(0, 100) + '...' : description.length}</p>
+                {
+                    description.length > 100 ?
+                        <p className='mb-5'>{description.slice(0, 100) + '...'}</p>
+                        :
+                        <p className='mb-5'>{description}</p>
+                }
                 <div className='flex justify-between'>
-                    <p className='font-bold'>Price: $ {price} <small>/person</small></p>
+                    <p className='font-bold'>Price: $ <span className='text-orange-500 text-xl'>{price}</span> <small>/person</small></p>
                     <div className='flex items-center gap-5'>
                         <p>Ratings: {rating}</p>
                         <FaStar className='text-yellow-500'></FaStar>
